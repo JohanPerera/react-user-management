@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 
 export class Form extends Component {
     constructor(props) {
@@ -7,8 +8,8 @@ export class Form extends Component {
         this.state = {
             username: '',
             address: '',
-            phonenumber:'',
-            sex:'female'
+            phonenumber: '',
+            sex: 'female'
         }
     }
 
@@ -20,28 +21,38 @@ export class Form extends Component {
 
     handleAddressChange = (event) => {
         this.setState({
-            address:event.target.value
+            address: event.target.value
         })
     }
 
     handlePhonenumberChange = (event) => {
         this.setState({
-            phonenumber:event.target.value
-        })
-    }
-    
-    handleSexChange = (event) => {
-        this.setState({
-            sex:event.target.value
+            phonenumber: event.target.value
         })
     }
 
-    handleSubmit = (event) =>{
+    handleSexChange = (event) => {
+        this.setState({
+            sex: event.target.value
+        })
+    }
+
+    handleSubmit = (event) => {
         alert(`${this.state.username}, ${this.state.address}, ${this.state.phonenumber}, ${this.state.sex}`)
         event.preventDefault()
+
+        axios.get('http://localhost:3001/users').then((res)=>{
+            if(res) {
+                console.log(res);
+            }
+        }
+        ).catch((err) => {
+            console.log(err);
+        }
+        )
     }
     render() {
-        const {username,address,phonenumber,sex} = this.state
+        const { username, address, phonenumber, sex } = this.state
         return (
             <form onSubmit={this.handleSubmit}>
                 <div>
@@ -50,7 +61,7 @@ export class Form extends Component {
                 </div>
                 <div>
                     <label>Phone Number : </label>
-                    <input type='text' value = {phonenumber} onChange={this.handlePhonenumberChange}></input>
+                    <input type='text' value={phonenumber} onChange={this.handlePhonenumberChange}></input>
                 </div>
                 <div>
                     <label>Address : </label>
