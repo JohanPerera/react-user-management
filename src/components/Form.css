@@ -1,6 +1,14 @@
 .wrapper{
     display: flex;
     flex-direction: column;
+    color: rgb(27, 27, 27);
+    background-color:rgba(233, 204, 141, 0.637);
+    border-radius: 10%;
+    width: 500px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    box-shadow: 10px 10px 8px #363636;
 }
 
 .field{
@@ -19,6 +27,7 @@
 }
 
 .field_label{
+    color: rgb(255, 255, 255);
     margin-left: 10px;
     margin-right: 20px;
 }
