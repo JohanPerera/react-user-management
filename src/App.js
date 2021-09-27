@@ -1,5 +1,6 @@
 import './App.css';
 import Form from './components/Form';
+import Map from './components/map';
 
 function App() {
   // this.state = {
@@ -7,7 +8,9 @@ function App() {
   // }
   return (
     <div className="App" >
+      <Map></Map>
       <Form></Form>
+      
     </div>
   );
 }
